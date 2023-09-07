@@ -1,0 +1,26 @@
+@font-face {
+  font-family: "Unbounded";
+  src: url("./fonts/Unbounded-VariableFont_wght.ttf");
+}
+
+body{
+  background-color: whitesmoke;
+  padding: 0;
+  margin: 0;
+}
+
+header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  font-size: 32px;
+  background-color: red;
+  border-bottom: 3px solid black;
+  font-family: "Unbounded", sans-serif;
+  color: whitesmoke;
+}
+
+header img{
+  height: 128px;
+}
