@@ -3,6 +3,15 @@
   src: url("./fonts/Unbounded-VariableFont_wght.ttf");
 }
 
+@font-face {
+  font-family: "Rubik";
+  src: url("./fonts//Rubik-Light.ttf");
+}
+
+*{
+  box-sizing: border-box;
+}
+
 body{
   background-color: whitesmoke;
   padding: 0;
@@ -19,8 +28,49 @@ header{
   border-bottom: 3px solid black;
   font-family: "Unbounded", sans-serif;
   color: whitesmoke;
+  height: 15vh;
 }
 
 header img{
   height: 128px;
+}
+
+.main{
+  display: flex;
+  background: url("./images/background.png") no-repeat;
+  min-height: 85vh;
+  background-size: cover;
+  justify-content: space-between;
+  color: white;
+}
+
+table{
+  font-size: 20px;
+  background-color: rgb(38, 37, 37);
+  border-spacing: 18px;
+  border-left: 2px solid white;
+  border-right: 1px solid  white;
+  font-family: "Rubik", sans-serif;
+}
+
+.player{
+  display: flex;
+  gap: 18px;
+}
+
+.player-info{
+  font-size: 32px;
+  font-family: "Unbounded", sans-serif;
+}
+
+.player-info img{
+  max-height: 350px;
+}
+
+.player-info p{
+  font-size: 18px;
+}
+
+.loan{
+  font-style: italic;
 }
