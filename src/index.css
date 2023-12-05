@@ -135,4 +135,15 @@ table{
   align-items: center;
   font-size: 32px;
   font-family: "Roboto", sans-serif;
+  transition: background-color 0.3s;
+  user-select: none;
 }
+
+.green{
+  background-color: green;
+}
+
+.yellow{
+  background-color: yellow;
+}
+
