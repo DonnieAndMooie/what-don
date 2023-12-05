@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-export default function Guess({playerName, index, disabled, submitted, setSubmitted}) {
+export default function Guess({playerName, index, disabled, submitted, setSubmitted, gameWon, setGameWon}) {
   const [guess, setGuess] = useState("")
   const characters = playerName.split("")
 
@@ -25,10 +25,17 @@ export default function Guess({playerName, index, disabled, submitted, setSubmit
       if(guess.length === playerName.length){
         setSubmitted(true)
       }
+      if (guess.toUpperCase() === playerName.toUpperCase()){
+        setGameWon(true)
+        alert("YOU WIN!")
+      }
       
     }
 
   function handleChange(e){ 
+    if(gameWon){
+      return
+    }
     const index = guess.length
     if (e.keyCode >=65 && e.keyCode <=90){
       if(playerName[index] === " " || playerName[index] === "'" || playerName[index] === "-"){
