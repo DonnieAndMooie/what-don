@@ -1,8 +1,7 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-export default function Guess({playerName, index, disabled}) {
+export default function Guess({playerName, index, disabled, submitted, setSubmitted}) {
   const [guess, setGuess] = useState("")
-  const [submitted, setSubmitted] = useState(false)
   const characters = playerName.split("")
 
   function charCount(str, letter) 
@@ -82,7 +81,6 @@ export default function Guess({playerName, index, disabled}) {
   }
 
   else{
-    let prevGuessed = []
     return(
       <div className='guess'>
         {characters.map((char, i) => {
@@ -97,7 +95,6 @@ export default function Guess({playerName, index, disabled}) {
             )
           }
           else if (guess[i].toUpperCase() === playerName[i].toUpperCase()){
-            prevGuessed.push(guess[i].toUpperCase())
             return(
               <div key={i} className={`letter green`}>{guess[i] ? guess[i].toUpperCase() : ""}</div>
             )
@@ -105,7 +102,6 @@ export default function Guess({playerName, index, disabled}) {
           }
           else if (playerName.toUpperCase().includes(guess[i].toUpperCase())){
             if(charCount(playerName, guess[i]) >= charCount(guess, guess[i])){
-              prevGuessed.push(guess[i].toUpperCase())
               return(
                 <div key={i} className={`letter yellow`}>{guess[i] ? guess[i].toUpperCase() : ""}</div>
               )

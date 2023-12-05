@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Guess from './Guess'
 
 export default function Wordle({playerName}) {
+  const [submitted1, setSubmitted1] = useState(false)
+  const [submitted2, setSubmitted2] = useState(false)
+  const [submitted3, setSubmitted3] = useState(false)
+  const [submitted4, setSubmitted4] = useState(false)
+  const [submitted5, setSubmitted5] = useState(false)
+  
   return (
     <div className='wordle'>
-      <Guess playerName={playerName} index={0}></Guess>
-      <Guess playerName={playerName} index={1} disabled={true}></Guess>
-      <Guess playerName={playerName} index={2} disabled={true}></Guess>
-      <Guess playerName={playerName} index={3} disabled={true}></Guess>
-      <Guess playerName={playerName} index={4} disabled={true}></Guess>
+      <Guess playerName={playerName} index={1} disabled={submitted1 ? true : false} submitted={submitted1} setSubmitted={setSubmitted1}></Guess>
+      <Guess playerName={playerName} index={2} disabled={submitted1 && !submitted2 ? false: true} submitted={submitted1 ? submitted2 : ""} setSubmitted={submitted1 ? setSubmitted2 : ""}></Guess>
+      <Guess playerName={playerName} index={3} disabled={submitted2 && !submitted3 ? false : true} submitted={submitted2 ? submitted3 : ""} setSubmitted={submitted2 ? setSubmitted3 : ""}></Guess>
+      <Guess playerName={playerName} index={4} disabled={submitted3 && !submitted4 ? false: true} submitted={submitted3 ? submitted4 : ""} setSubmitted={submitted3 ? setSubmitted4 : ""}></Guess>
+      <Guess playerName={playerName} index={5} disabled={submitted4 && !submitted5 ? false: true} submitted={submitted4 ? submitted5 : ""} setSubmitted={submitted4 ? setSubmitted5 : ""}></Guess>
     </div>
   )
 }
