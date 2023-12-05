@@ -8,6 +8,11 @@
   src: url("./fonts//Rubik-Light.ttf");
 }
 
+@font-face {
+  font-family: "Roboto";
+  src: url("./fonts/Roboto/Roboto-Bold.ttf");
+}
+
 *{
   box-sizing: border-box;
 }
@@ -40,7 +45,7 @@ header img{
   background: url("./images/background.png") no-repeat;
   min-height: 85vh;
   background-size: cover;
-  justify-content: space-between;
+  justify-content: space-around;
   color: white;
 }
 
@@ -61,6 +66,11 @@ table{
 .player-info{
   font-size: 32px;
   font-family: "Unbounded", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
 .player-info img{
@@ -73,4 +83,56 @@ table{
 
 .loan{
   font-style: italic;
+}
+
+.wordle{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+.guess input{
+  width: 40px;
+  height: 40px;
+  font-size: 28px;
+  font-family: "Unbounded", sans-serif;
+}
+
+.guess{
+  display: flex;
+  gap: 10px;
+  background-color: black;
+  padding: 20px;
+}
+
+.loading{
+  font-size: 32px;
+  font-family: "Unbounded", sans-serif;
+  -webkit-text-stroke: 1px black
+}
+
+.space{
+  width: 40px;
+}
+
+.punctuation{
+  font-size: 32px;
+}
+
+.small{
+  font-size: 18px;
+}
+
+.letter{
+  background-color: rgb(233, 233, 233);
+  height: 40px;
+  width: 40px;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-family: "Roboto", sans-serif;
 }
