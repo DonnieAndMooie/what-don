@@ -60,7 +60,6 @@ table{
 
 .player{
   display: flex;
-  gap: 18px;
 }
 
 .player-info{
@@ -71,6 +70,8 @@ table{
   align-items: center;
   text-align: center;
   justify-content: center;
+  background-color: rgb(38, 37, 37);
+  border-right: 3px solid white;
 }
 
 .player-info img{
@@ -140,10 +141,55 @@ table{
 }
 
 .green{
-  background-color: green;
+  background-color: rgb(0, 206, 0);
 }
 
 .yellow{
   background-color: yellow;
 }
 
+.keyboard .row{
+  display: flex;
+  justify-content: center;
+}
+
+.keyboard{
+  background-color: white;
+  border-radius: 18px;
+}
+
+
+.key{
+  background-color: black;
+  color: yellow;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 18px;
+  margin: 6px;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  user-select: none;
+}
+
+.key:hover{
+  background-color: rgb(38, 37, 37);
+}
+
+.win,
+.lose{
+  font-family: "Unbounded", sans-serif;
+  font-size: 28px;
+  background-color: rgb(38, 37, 37);
+  color: rgb(5, 255, 5);
+  padding: 8px;
+  text-align: center;
+  border-radius: 12px;
+}
+
+.lose{
+  color: red;
+}
+
+.grey{
+  background-color: rgb(145, 145, 145);
+}
