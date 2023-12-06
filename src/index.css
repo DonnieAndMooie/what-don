@@ -203,3 +203,84 @@ table{
 tr{
   min-height: 50px;
 }
+
+@media  (max-width: 1200px) {
+  *{
+    font-size: 18px;
+  }
+  header{
+    width: 100vw;
+    height: 6vh;
+  }
+
+  header img{
+    height: 24px;
+  }
+
+  header h1{
+    font-size: 24px;
+  }
+
+  .main{
+    justify-content: flex-start;
+  }
+
+  .player{
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-right: 3px solid white;
+    padding-right: 18px;
+  }
+
+  .player-info{
+    border: none;
+  }
+
+  .player-info img{
+    max-height: 48px;
+  }
+
+  table{
+    border: none;
+    height: fit-content;
+    height: 100%;
+    width: 100%;
+  }
+
+  .wordle{
+    max-width: 70vw;
+    
+  }
+
+  .letter{
+    height: 32px;
+    width: 32px;
+  }
+
+  .wordle{
+    justify-content: flex-start;
+    margin-top: 20px;
+    margin-left: 24px;
+    padding-left: 24px;
+  }
+
+  .key{
+    height: 48px;
+    font-size: 24px;
+  }
+
+  .guess{
+    padding: 5px;
+  }
+
+  .empty-row{
+    height: 30px;
+  }
+
+  .table-div{
+    height: 100%;
+    width: 100%;
+  }
+}
