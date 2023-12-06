@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 function App() {
   const [playerData, setPlayerData] = useState(null)
   const [gameWon, setGameWon] = useState(false)
+  const [currentGuess, setCurrentGuess] = useState(1)
     useEffect(() => {
       async function fetchPlayer(){
         const response = await fetch("https://fine-red-lemur-tux.cyclic.app/fetch-player")
@@ -33,8 +34,8 @@ function App() {
     <div className="App">
       <Header/>
       <div className="main">
-        <Player playerData={playerData}/>
-        <Wordle playerName={playerData.name} gameWon={gameWon} setGameWon={setGameWon}/>
+        <Player playerData={playerData} gameWon={gameWon} currentGuess={currentGuess}/>
+        <Wordle playerName={playerData.name} gameWon={gameWon} setGameWon={setGameWon} currentGuess={currentGuess} setCurrentGuess={setCurrentGuess}/>
       </div>
     </div>
   );

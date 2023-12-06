@@ -3,7 +3,7 @@ import Guess from './Guess'
 import Keyboard from './Keyboard'
 import Key from './Key'
 
-export default function Wordle({playerName, gameWon, setGameWon}) {
+export default function Wordle({playerName, gameWon, setGameWon, currentGuess, setCurrentGuess}) {
   const [submitted1, setSubmitted1] = useState(false)
   const [submitted2, setSubmitted2] = useState(false)
   const [submitted3, setSubmitted3] = useState(false)
@@ -14,7 +14,6 @@ export default function Wordle({playerName, gameWon, setGameWon}) {
   const [guess3, setGuess3] = useState("")
   const [guess4, setGuess4] = useState("")
   const [guess5, setGuess5] = useState("")
-  const [currentGuess, setCurrentGuess] = useState(1)
 
   
   if (currentGuess === 1 && submitted1 === true){

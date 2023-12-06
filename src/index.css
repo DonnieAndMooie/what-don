@@ -56,6 +56,7 @@ table{
   border-left: 2px solid white;
   border-right: 1px solid  white;
   font-family: "Rubik", sans-serif;
+  height: 100%;
 }
 
 .player{
@@ -70,8 +71,9 @@ table{
   align-items: center;
   text-align: center;
   justify-content: center;
-  background-color: rgb(38, 37, 37);
+  background-color: rgba(26,26,26,255);
   border-right: 3px solid white;
+  min-width: 380px;
 }
 
 .player-info img{
@@ -192,4 +194,12 @@ table{
 
 .grey{
   background-color: rgb(145, 145, 145);
+}
+
+.empty-row{
+  height: 80px;
+}
+
+tr{
+  min-height: 50px;
 }

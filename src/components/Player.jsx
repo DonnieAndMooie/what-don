@@ -1,9 +1,42 @@
 import React, { useEffect, useState } from 'react'
+import Career from './Career'
 import Unknown from "../images/unknown.jpeg"
 
-export default function Player({playerData}) {
-    
-  
+export default function Player({playerData, gameWon, currentGuess}) {
+  const chunk = (arr, n) => {
+    const size = Math.ceil(arr.length / n);
+    return Array.from({ length: n }, (v, i) =>
+      arr.slice(i * size, i * size + size)
+    );
+  }
+
+  const clubChunks = chunk(playerData.clubs, 5)
+
+  let currentChunk = []
+  for (let i=0; i < playerData.clubs.length; i++){
+    if (i < currentGuess){
+      currentChunk = currentChunk.concat(clubChunks[i])
+    }
+    else{
+      currentChunk.push("")
+    }
+  }
+
+  if (!gameWon){
+    return(
+      <div className='player'>
+      <div className="player-info">
+        <h2>?????</h2>
+        <img src={Unknown} alt={"Player"}/>
+        <p>Age: {playerData.age}</p>
+        <p>Position: {playerData.position}</p>
+      </div>
+      <Career playerClubs={currentChunk}/>
+    </div>
+    )
+  }
+
+
   return (
     <div className='player'>
       <div className="player-info">
@@ -13,43 +46,7 @@ export default function Player({playerData}) {
         <p>Age: {playerData.age}</p>
         <p>Position: {playerData.position}</p>
       </div>
-      <table className={playerData.clubs.length > 16 ? "clubs small": "clubs"}>
-        <thead>
-          <tr>
-            <th>Years</th>
-            <th>Club</th>
-            <th>Appearances</th>
-            <th>Goals</th>
-          </tr>
-        </thead>
-        <tbody>
-          {playerData.clubs.map((club, i) => {
-            let yearsElement
-            if (club.from === club.to && club.loan){
-              yearsElement = <td>➔{club.from} (loan)</td>
-            }
-            else if (club.from === club.to){
-              yearsElement = <td>{club.from}</td>
-            }
-            else if (club.loan){
-              yearsElement = <td>➔{club.from}-{club.to} (loan)</td>
-            }
-            else{
-              yearsElement = <td>{club.from}-{club.to}</td>
-            }
-            return (
-              <tr key={i} className={club.loan ? "loan": ""}>
-                {yearsElement}
-                <td>{club.team}</td>
-                <td>{club.appearances}</td>
-                <td>{club.goals}</td>
-              </tr>
-            )
-            
-          })}
-        </tbody>
-        
-      </table>
+      <Career playerClubs={playerData.clubs}/>
     </div>
   )
 }
