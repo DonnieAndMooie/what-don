@@ -28,6 +28,9 @@ export default function Wordle({playerName, gameWon, setGameWon, currentGuess, s
   if (currentGuess === 4 && submitted4 === true){
     setCurrentGuess(5)
   }
+  if (currentGuess === 5 && submitted5 === true){
+    setCurrentGuess(6)
+  }
 
   if (gameWon){
     return(
@@ -42,7 +45,7 @@ export default function Wordle({playerName, gameWon, setGameWon, currentGuess, s
     )
   }
 
-  if (currentGuess === 5 && submitted5){
+  if (currentGuess === 6){
     return(
       <div className="wordle">
         <Guess playerName={playerName} disabled={true} guess={guess1} submitted={submitted1}/>

@@ -22,7 +22,7 @@ export default function Player({playerData, gameWon, currentGuess}) {
     }
   }
 
-  if (!gameWon){
+  if (!gameWon && currentGuess !== 6){
     return(
       <div className='player'>
       <div className="player-info">
