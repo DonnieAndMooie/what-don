@@ -204,6 +204,7 @@ tr{
   min-height: 50px;
 }
 
+
 @media (max-width: 1300px) {
   .letter{
     width: 30px;
@@ -292,6 +293,15 @@ tr{
 
   .table-div{
     height: 100%;
+    width: 100%;
+  }
+
+  .guess:has(> .wrap){
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .wrap{
     width: 100%;
   }
 }

@@ -69,6 +69,11 @@ export default function Guess({playerName, index, disabled, submitted, setSubmit
       <div className='guess'>
         {characters.map((char, i) => {
           if (char === " "){
+            if(playerName.length >= 12){
+              return (
+                <div key={i} className='space wrap'></div>
+              )
+            }
             return (
               <div key={i} className='space'></div>
             )
