@@ -10,7 +10,7 @@ function App() {
   const [currentGuess, setCurrentGuess] = useState(1)
     useEffect(() => {
       async function fetchPlayer(){
-        const response = await fetch("https://fine-red-lemur-tux.cyclic.app/fetch-player")
+        const response = await fetch(process.env.REACT_APP_API_URL)
         const playerData = await response.json()
         setPlayerData(playerData)
         console.log(playerData)
