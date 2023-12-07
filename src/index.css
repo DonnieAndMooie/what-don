@@ -310,6 +310,12 @@ tr{
   }
 }
 
+@media (min-width: 800px) {
+  .wordle{
+    width: 50vw;
+  }
+}
+
 @media (max-width: 770px) {
   
   .main{
