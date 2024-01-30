@@ -113,22 +113,37 @@ export default function Guess({playerName, index, disabled, submitted, setSubmit
             
           }
           else if (playerName.toUpperCase().includes(guess[i].toUpperCase())){
-            if(charCount(playerName, guess[i]) >= charCount(guess, guess[i])){
-              return(
-                <div key={i} className={`letter yellow`}>{guess[i] ? guess[i].toUpperCase() : ""}</div>
-              )
-            } 
-            let count = 0
-            for (let x=0; x < i; x++){
-              if (guess[x] === guess[i]){
-                count +=1
+            const indexes = []
+            for (let j = 0; j < playerName.length; j++){
+              if (playerName[j].toUpperCase() === guess[i].toUpperCase()){
+                indexes.push(j)
               }
             }
-            if (count < charCount(playerName.toUpperCase(), guess[i].toUpperCase())){
+            let correctIndexes = 0
+            for (const index of indexes){
+              if (guess[index].toUpperCase() === guess[i].toUpperCase()){
+                correctIndexes += 1
+              }
+            }
+
+            if (correctIndexes === indexes.length){
+              return(
+                <div key={i} className={`letter grey`}>{guess[i] ? guess[i].toUpperCase() : ""}</div>
+              )
+            }
+
+            else if (charCount(guess.toUpperCase().slice(0, i+1), guess[i].toUpperCase()) > charCount(playerName.toUpperCase(), guess[i].toUpperCase())){
+              return(
+                <div key={i} className={`letter grey`}>{guess[i] ? guess[i].toUpperCase() : ""}</div>
+              )
+            }
+
+            else {
               return(
                 <div key={i} className={`letter yellow`}>{guess[i] ? guess[i].toUpperCase() : ""}</div>
               )
             }
+          
           }
           return(
             <div key={i} className={`letter grey`}>{guess[i] ? guess[i].toUpperCase() : ""}</div>
